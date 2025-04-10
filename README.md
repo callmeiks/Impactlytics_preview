@@ -1,6 +1,8 @@
 ## Impactlytics Overview
 **A Rigorous Causal Inference and Statistical Learning Framework for Quantifying Virality Dynamics in Short-Form Video Content**
 
+**(This repository is a research preview and not intended for production use)**
+
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-research--preview-orange)
