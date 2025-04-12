@@ -1,121 +1,116 @@
+## Impactlytics Overview
+**A Rigorous Causal Inference and Statistical Learning Framework for Quantifying Virality Dynamics in Short-Form Video Content**
 
-HOW TO INSTALL ALL LIBRARIES:
-python3.10 -m venv venv
-source venv/bin/activate
-python3.10 -m pip install -r requirement.txt
+**(This repository is a research preview and not intended for production use)**
 
-# Streamlit Login/ Sign Up Library   [![Downloads](https://static.pepy.tech/personalized-badge/streamlit-login-auth-ui?period=month&units=international_system&left_color=grey&right_color=blue&left_text=downloads)](https://pepy.tech/project/streamlit-login-auth-ui)
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-research--preview-orange)
 
-The streamlit_login_auth_ui library is meant for streamlit application developers.
-It lets you connect your streamlit application to a pre-built and secure Login/ Sign-Up page.
+## Abstract
 
-You can customize specific parts of the page without any hassle!
+Impactlytics is an advanced computational framework developed to investigate the causal mechanisms and statistical patterns governing content performance on short-form video platforms. The methodology integrates experimental design principles, counterfactual inference techniques, and supervised learning algorithms to quantify the causal effects of specific content attributes on engagement metrics (views, likes, shares, completion rates).
 
-The library grants users an option to reset their password, users can click on ```Forgot Password?``` after which an Email is triggered containing a temporary, randomly generated password.
+This research addresses the methodological limitations present in current literature that predominantly relies on correlational analysis. By employing a formal causal framework and leveraging experimental data collected through official platform APIs, Impactlytics establishes a robust foundation for identifying true causal relationships between content features (linguistic characteristics, temporal factors, audiovisual elements) and performance outcomes. The framework thereby bridges the theoretical divide between behavioral science and empirical content optimization.
 
-The library also sets encrypted cookies to remember and automatically authenticate the users without password. \
-The users can logout using the ```Logout``` button.
+## Core Capabilities
 
+- **Counterfactual Inference Framework**: Implementation of structural causal models via DoWhy and EconML for principled identification and estimation of treatment effects
+- **Experimental Design & Execution**: Automated deployment of randomized controlled trials through content posting API to ensure internal validity
+- **Heterogeneous Treatment Effect Estimation**: Measurement of conditional average treatment effects across dimensional subspaces (follower count, creator demographics, content categories)
+- **Multimodal Feature Extraction**: Systematic extraction of linguistic sentiment vectors, temporal-contextual variables, and audiovisual characteristic embeddings
+- **Ensemble Learning Architecture**: Implementation of gradient-boosted decision trees, regularized regression methods, and causal forest estimators for predictive and prescriptive analytics
 
-## Authors
-- [@gauriprabhakar](https://github.com/GauriSP10)
+## Installation Protocol
 
-## PyPi
-https://pypi.org/project/streamlit-login-auth-ui/
+```bash
+cd impactlytics
 
-## The UI:
-![login_streamlit](https://user-images.githubusercontent.com/75731631/185765909-a70dd7af-240d-4a90-9140-45d6292e76f0.png)
- 
-## Installation
+# Create isolated environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-```python
-pip install streamlit-login-auth-ui
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-## How to implement the library?
+## Configuration Parameters
 
-To import the library, just paste this at the starting of the code:
-```python
-from streamlit_login_auth_ui.widgets import __login__
+Create a `.env` file in the project root directory with the following authentication parameters:
+
+```
+TIKTOK_CLIENT_KEY=your_client_key
+TIKTOK_CLIENT_SECRET=your_client_secret
 ```
 
-All you need to do is create an object for the ```__login__``` class and pass the following parameters:
-1. auth_token : The unique authorization token received from - https://www.courier.com/email-api/
-2. company_name : This is the name of the person/ organization which will send the password reset email.
-3. width : Width of the animation on the login page.
-4. height : Height of the animation on the login page.
-5. logout_button_name : The logout button name.
-6. hide_menu_bool : Pass True if the streamlit menu should be hidden.
-7. hide_footer_bool : Pass True if the 'made with streamlit' footer should be hidden.
-8. lottie_url : The lottie animation you would like to use on the login page. Explore animations at - https://lottiefiles.com/featured
+## System Architecture
 
-#### Mandatory Arguments:
-* ```auth_token```
-* ```company_name```
-* ```width```
-* ```height```
-
-#### Non Mandatory Arguments:
-* ```logout_button_name```     [default = 'Logout']
-* ```hide_menu_bool```         [default = False]
-* ```hide_footer_bool```       [default = False]
-* ```lottie_url```             [default = https://assets8.lottiefiles.com/packages/lf20_ktwnwv5m.json]
-
-After doing that, just call the ```build_login_ui()``` function using the object you just created and store the return value in a variable.
-
-# Example:
-```python
-import streamlit as st
-from streamlit_login_auth_ui.widgets import __login__
-
-__login__obj = __login__(auth_token = "courier_auth_token", 
-                    company_name = "Shims",
-                    width = 200, height = 250, 
-                    logout_button_name = 'Logout', hide_menu_bool = False, 
-                    hide_footer_bool = False, 
-                    lottie_url = 'https://assets2.lottiefiles.com/packages/lf20_jcikwtux.json')
-
-LOGGED_IN = __login__obj.build_login_ui()
-
-if LOGGED_IN == True:
-
-    st.markown("Your Streamlit Application Begins here!")
+```
+impactlytics/
+├── __init__.py
+├── main.py
+├── config.py
+├── auth/
+│   ├── __init__.py
+│   └── tiktok_auth.py
+├── api/
+│   ├── __init__.py
+│   └── tiktok_client.py
+├── data/
+│   ├── __init__.py
+│   ├── collectors.py
+│   └── preprocessors.py
+├── features/
+│   ├── __init__.py
+│   ├── linguistic.py
+│   ├── temporal.py
+│   └── visual_audio.py
+├── models/
+│   ├── __init__.py
+│   ├── causal.py
+│   └── predictive.py
+├── experiments/
+│   ├── __init__.py
+│   ├── design.py
+│   └── evaluation.py
+└── visualization/
+    ├── __init__.py
+    └── plots.py
 ```
 
-That's it! The library handles the rest. \
-Just make sure you call/ build your application indented under ```if st.session_state['LOGGED_IN'] == True:```, this guarantees that your application runs only after the user is securely logged in. 
+## Dependencies
 
-## Explanation
-### Login page
-The login page, authenticates the user.
+The following computational libraries are required:
 
-### Create Account page
-Stores the user info in a secure way in the ```_secret_auth_.json``` file. \
-![create_account_streamlit](https://user-images.githubusercontent.com/75731631/185765826-3bb5d2ca-c549-46ff-bf14-2cc42d295588.png)
+| Category | Dependencies |
+|----------|-------------|
+| **Core Data Science** | numpy ≥ 1.20.0, pandas ≥ 1.3.0, scipy ≥ 1.7.0 |
+| **Machine Learning** | scikit-learn ≥ 1.0.0, xgboost ≥ 1.4.0 |
+| **Causal Inference** | dowhy ≥ 0.8, econml ≥ 0.12.0 |
+| **NLP Processing** | nltk ≥ 3.6.0, textblob ≥ 0.15.3, transformers ≥ 4.11.0 |
+| **Visualization** | matplotlib ≥ 3.4.0, seaborn ≥ 0.11.0 |
+| **Network & Auth** | requests ≥ 2.26.0, python-dotenv ≥ 0.19.0 |
 
-### Forgot Password page
-After user authentication (email), triggers an email to the user containing a random password. \
-![forgot_password_streamlit](https://user-images.githubusercontent.com/75731631/185765851-18db4775-b1f0-4cfe-86a7-93bda88227dd.png)
+## Research Context
 
-### Reset Password page
-After user authentication (email and the password shared over email), resets the password and updates the same \
-in the ```_secret_auth_.json``` file. \
-![reset_password_streamlit](https://user-images.githubusercontent.com/75731631/185765859-a0cf45b0-bfa4-489d-8060-001a9372843a.png)
+This research was conducted under the auspices of:
 
-### Logout button
-Generated in the sidebar only if the user is logged in, allows users to logout. \
-![logout_streamlit](https://user-images.githubusercontent.com/75731631/185765879-dbe17dda-93e3-4417-b5fc-5ce1d4dc8ecc.png)
-
-__Cookies are automatically created and destroyed depending on the user authentication status.__
-
-## Version
-v0.2.0
+**Institution**: University of Southern California  
+**Department**: Marshall School of Business  
+**Principal Investigator**: Professor Bowen Lou  
+**Research Areas**: Causal Inference, Statistical Learning, Digital Media Analytics
 
 ## License
-[MIT](https://github.com/GauriSP10/streamlit_login_auth_ui/blob/main/LICENSE)
 
+This software is distributed under the MIT License. See the accompanying LICENSE file for complete terms.
 
+## Contributors
 
+- Principal Developer: Lucy Qiu (lexuanqi@usc.edu)
+- Faculty Advisor: Prof. Bowen Lou
 
+## Acknowledgments
 
-
+- TikTok Developer Platform for API access and technical documentation
+- USC Marshall School of Business for research infrastructure and support
+- The DoWhy and EconML development teams for their causal inference frameworks

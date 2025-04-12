@@ -55,7 +55,5 @@ LOGGED_IN = __login__obj.build_login_ui()
 username = __login__obj.get_username()
 
 # only allow authorized USC users
-st.sidebar.markdown("only **Authorized** USC users can access this app.")
-
-
+st.sidebar.markdown("Only **Authorized** USC users can access this app.")
 
