@@ -337,7 +337,7 @@ class __login__:
             with open("markdown/math_framework.md", "r", encoding="utf-8") as file:
                 st.markdown(file.read())
         elif selected_option == "README":
-            with open("markdown/README.md", "r", encoding="utf-8") as file:
+            with open("markdown/readme.md", "r", encoding="utf-8") as file:
                 st.markdown(file.read())
         elif selected_option == "Privacy Policy":
             with open("markdown/privacy_policy.md", "r", encoding="utf-8") as file:
