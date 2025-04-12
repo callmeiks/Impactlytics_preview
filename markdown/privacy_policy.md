@@ -1,3 +1,4 @@
+# Privacy Policy
 **Effective Date:** March 10, 2025  
 **Application Name:** Impactlytics  
 **Affiliation:** University of Southern California – Marshall School of Business  

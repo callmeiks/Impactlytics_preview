@@ -8,11 +8,7 @@ Let:
 - $T_i \in \{0, 1\}$: Binary treatment indicator (e.g., caption with sentiment vs. neutral)
 - $Y_i \in \mathbb{R}$: Observed engagement outcome (e.g., number of views, likes, shares)
 - $Y_i(1), Y_i(0)$: Potential outcomes under treatment and control
-
-
-:::highlight yellow 💡
-We assume the **Rubin Causal Model** (Potential Outcomes Framework), where each unit has two potential outcomes but only one is observed.
-:::
+- We assume the **Rubin Causal Model** (Potential Outcomes Framework), where each unit has two potential outcomes but only one is observed.
 ---
 ## 2. Causal Estimation Objectives
 ### 2.1 Average Treatment Effect (ATE)
@@ -20,9 +16,7 @@ $$
 \text{ATE} = \mathbb{E}[Y(1) - Y(0)]
 $$
 
-:::highlight yellow 💡
-Estimated by comparing average outcomes between treatment and control groups, adjusting for confounders.
-:::
+- Estimated by comparing average outcomes between treatment and control groups, adjusting for confounders.
 ---
 ### 2.2 Conditional Average Treatment Effect (CATE)
 $$
@@ -69,10 +63,7 @@ We model $Y_i$ using supervised learning (when necessary) for outcome prediction
 - XGBoost
 - Random Forests
 - Neural networks (for multi-modal signals)
-
-:::highlight yellow 💡
-These models are used within meta-learning architectures (e.g., X-Learner) or for predictive diagnostics.
-:::
+- These models are used within meta-learning architectures (e.g., X-Learner) or for predictive diagnostics.
 ---
 ## 6. Uplift Modeling (Optional)
 We may use **uplift models** to estimate treatment effect heterogeneity:
@@ -84,9 +75,8 @@ Where:
 - $f_1(x)$: predicted outcome under treatment
 - $f_0(x)$: predicted outcome under control
 
-:::highlight yellow 💡
 Used for identifying segments where treatment (e.g., sentiment change) has the greatest marginal effect.
-:::
+
 ---
 ## 7. Evaluation Metrics
 - **Treatment effect quality**:
